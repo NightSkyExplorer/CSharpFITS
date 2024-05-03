@@ -1,18 +1,18 @@
-﻿using System.Configuration;
+﻿using System;
 using System.IO;
 
-namespace CSharpFitsTests.util
+namespace CSharpFitsTests.Util
 {
     public static class TestFileSetup
     {
         static TestFileSetup()
         {
-            SourceFolder = ConfigurationManager.AppSettings.Get("SourceFolder");
-            TargetFolder = ConfigurationManager.AppSettings.Get("TargetFolder");
+            SourceFolder = @"E:\Repos\NightSkyExplorer\CSharpFITS\Tests\Data";
+            TargetFolder = @"E:\Repos\NightSkyExplorer\CSharpFITS\Build\TestTarget\";
 
             if (!Directory.Exists(SourceFolder))
             {
-                throw new ConfigurationErrorsException("Source folder does not exist.");
+                throw new Exception("Source folder does not exist.");
             }
 
             if (!Directory.Exists(TargetFolder))
